@@ -1,0 +1,15 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+my $original = shift @ARGV;
+open ORIGINAL, '<', $original;
+open COPY, '>', "$original.out";
+
+while (<ORIGINAL>) {
+    chomp;
+    s/fred/\n/gi;
+    s/wilma/Fred/gi;
+    s/\n/Wilma/gi;
+    print COPY "$_\n";
+}

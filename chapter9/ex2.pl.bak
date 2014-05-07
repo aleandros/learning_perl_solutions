@@ -1,0 +1,12 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+my $original = shift @ARGV;
+open ORIGINAL, '<', $original;
+open COPY, '>', "$original.out";
+
+while (<ORIGINAL>) {
+    s/fred/Larry/ig;
+    print COPY;
+}
